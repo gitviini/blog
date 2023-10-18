@@ -1,0 +1,160 @@
+*{
+	padding: 0;
+	margin: 0;
+}
+html, body{
+	display: block;
+	width: 100%;
+	height: 100%;
+	overflow: hidden hidden;
+}
+header{
+	display: block;
+	width: 100%;
+	height: 60px;
+	overflow: hidden hidden;
+}
+header ul li{
+	position: relative;
+	float: left;
+	list-style: none;
+	margin: 22px;
+}
+#block{
+	position: relative;
+	display: block;
+	width: 25px;
+	height: 25px;
+	border-radius: 5px;
+	background: #178;
+	transition: 0.5s;
+}
+#block:before{
+	content: '';
+	position: absolute;
+	top: -10px;
+	left: -10px;
+	display: block;
+	width: 25px;
+	height: 25px;
+	border-radius: 5px;
+	background: #708;
+	transition: 0.5s;
+}
+#block:hover{
+	transform: translateX(-10px) translateY(-10px);
+}
+#block:hover:before{
+	transform: translateX(20px) translateY(20px);	
+}
+header ul li a{
+	text-decoration: none;
+	color: #000;
+}
+main{
+	position: relative;
+	display: grid;
+	width: 100%;
+	height: calc(100% - 60px);
+	grid-template-columns: 20% 80%;
+	grid-template-rows: 100%;
+	z-index: 0;
+}
+#dash{
+	display: block;
+	width: 100%;
+	height: 100%;
+	background: rgb(0,0,0,0.15);
+	overflow-y: scroll;
+	overflow-x: hidden;
+}
+
+#dash li{
+	font-family: Arial;
+	margin: 20px 25px;
+	list-style: circle;
+}
+#dash ul li{
+	position: relative;
+	list-style: none;
+	display: block;
+	width: 100%;
+	margin: 20px 0;
+	left: 5%;
+}
+#dash a{
+	display: block;
+	width: 80%;
+	height: 20px;
+	padding: 8px;
+	background: rgb(0,0,0,0.2);
+	border-radius: 5px;
+	text-decoration: none;
+	color: #000;
+	transition: 0.2s;
+}
+#dash a:hover{
+	background: rgb(0,0,0,0.3);
+}
+section{
+	display: grid;
+	width: 100%;
+	height: 100%;
+	background-image: linear-gradient(0deg, #fff, rgb(0,0,0,0.075));
+	grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+	grid-template-rows: repeat(auto-fit, minmax(350px, 1fr));
+	padding: 10px;
+	overflow-y: scroll;
+	overflow-x: hidden;
+}
+.post{
+	position: relative;
+	display: block;
+	width: 80%;
+	height: 90%;
+	min-height: 300px;
+	max-height: 350px;
+	background: rgb(0,0,0,0.3);
+	top: calc(50% - 40%);
+	left: calc(50% - 40%);
+	border-radius: 10px;
+	transition: 0.2s;
+	margin: 0 0 50px 0;
+}
+
+.post .img{
+	position: relative;
+	display: block;
+	top: -20px;
+	left: -20px;
+	width: 100%;
+	height: 70%;
+	border-radius: 10px;
+	border: none;
+	background: #ddd;
+}
+.post p{
+	position: relative;
+	display: block;
+	top: 5%;
+	left: -20px;
+	width: 93.5%;
+	padding: 10px;
+	border-radius: 10px;
+	border: none;
+	background: #ddd;
+	word-break: break-all;
+	font-family: Arial;
+}
+.post:hover{
+	scale:1.05;
+}
+
+@media screen and (max-width: 700px){
+	main{
+		grid-template-columns: 100%;
+	}
+	#dash{
+		display: none;
+	}
+}

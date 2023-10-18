@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=width-device, initial-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="{{url_for('static',filename='home.css')}}">
+	<title>blog</title>
+</head>
+<body>
+	<header>
+		<nav>
+			<ul>
+				<li><div id="block"></div></li>
+			</ul>
+		</nav>
+	</header>
+	<main>
+		<ul id="dash"></ul>
+		<section></section>
+	</main>
+</body>
+<script type="text/javascript">
+	let dash = document.querySelector('#dash')
+	//informações do dash
+	let list = {{list|tojson}}
+	for (inf in list){
+		let li = document.createElement('li')
+		li.innerText = inf
+		dash.appendChild(li)
+		let ul = document.createElement('ul')
+		dash.appendChild(ul)
+		for (let n = 0; n < list[inf].length; n++){
+			let li = document.createElement('li')
+			ul.appendChild(li)
+			let a = document.createElement('a')
+			a.setAttribute('href',`#${list[inf][n]}`)
+			a.innerText = list[inf][n]
+			li.appendChild(a)
+		}
+	}
+	let section = document.querySelector('section')
+	let posts = {{posts|tojson}}
+
+	for (post in posts){
+		let div = document.createElement('div')
+		div.setAttribute('class','post')
+		section.appendChild(div)
+		let img = document.createElement('div')
+		img.setAttribute('class','img')
+		img.setAttribute('alt',posts[post])
+		div.appendChild(img)
+		if (post == ''){
+			img.style.height = '100%'
+		}
+		else{
+			let p = document.createElement('p')
+			p.innerText = post
+			div.appendChild(p)
+		}
+	}
+</script>
+</html>
