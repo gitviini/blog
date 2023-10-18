@@ -51,6 +51,68 @@ header ul li a{
 	text-decoration: none;
 	color: #000;
 }
+#new{
+	position: relative;
+	float: right;
+	margin: 10px;
+}
+#new div{
+	display: block;
+	width: 40px;
+	height: 40px;
+	background: #708;
+	border-radius: 50%;
+	transition: 0.5s;
+}
+#new div:before{
+	content: '';
+	position: absolute;
+	display: block;
+	top: calc(50% - 1px);
+	left: calc(50% - 12.5px);
+	width: 25px;
+	height: 2px;
+	background-color: #fff;
+	transition: 0.5s;
+}
+#new div:after{
+	content: '';
+	position: absolute;
+	display: block;
+	top: calc(50%);
+	left: calc(50% - 12.5px);
+	transform: rotate(90deg);
+	width: 25px;
+	height: 2px;
+	background-color: #fff;
+	transition: 0.5s;
+}
+#new.click div{
+	opacity: 0.9;
+}
+#new.click div:after{
+	top: calc(50% - 1px);
+	transform: rotate(180deg);
+}
+#newpost{
+	transition: 0.5s;
+	position: absolute;
+	display: block;
+	width: calc(100% - 20%);
+	height: 0;
+	top: 60px;
+	left: 20%;
+	background: #809;
+	opacity: 0.5;
+	margin: 0;
+	z-index: 1;
+}
+#new.click + #newpost{
+	height: calc(100% - 60px);
+}
+header #new.click + main section{
+	display: none;
+}
 main{
 	position: relative;
 	display: grid;
@@ -100,7 +162,7 @@ section{
 	display: grid;
 	width: 100%;
 	height: 100%;
-	background-image: linear-gradient(0deg, #fff, rgb(0,0,0,0.075));
+	background-image: linear-gradient(0deg, #fff, rgb(0,0,0,0.09));
 	grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
 	grid-template-rows: repeat(auto-fit, minmax(350px, 1fr));
 	padding: 10px;
@@ -149,7 +211,6 @@ section{
 .post:hover{
 	scale:1.05;
 }
-
 @media screen and (max-width: 700px){
 	main{
 		grid-template-columns: 100%;

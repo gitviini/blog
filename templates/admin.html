@@ -11,6 +11,8 @@
 		<nav>
 			<ul>
 				<li><div id="block"></div></li>
+				<li id="new"><div></div></li>
+				<li id="newpost"><div></div></li>
 			</ul>
 		</nav>
 	</header>
@@ -58,5 +60,9 @@
 			div.appendChild(p)
 		}
 	}
+	let newpost = document.querySelector('#new')
+	newpost.addEventListener('click',(event)=>{
+		newpost.classList.toggle('click')
+	})
 </script>
 </html>
