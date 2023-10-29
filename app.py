@@ -8,8 +8,27 @@ list = {'posts':['news']}
 posts = {'Novo site feito por mim':'foto','':'fototwo','Estou assistindo The men and a half':'','Criando um blog':''}
 
 @app.route('/')
+def index():
+	return render_template('login.html')
+
+@app.post('/login')
+def login():
+    name_email = request.form['name_email']
+    password = request.form['password']
+    print(name_email+'\n'+password)
+    return redirect('/home')
+
+@app.post('/sign')
+def sign():
+    name = request.form['name']
+    email = request.form['email']
+    password = request.form['password']
+    print(name+'\n'+email+'\n'+password)
+    return redirect('/home')
+
+@app.route('/home')
 def home():
-	return render_template('home.html',list=list,posts=posts)
+    return render_template('home.html',list=list,posts=posts)
 
 @app.route('/admin')
 def admin():

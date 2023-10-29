@@ -79,7 +79,7 @@ header ul li a{
 	content: '';
 	position: absolute;
 	display: block;
-	top: calc(50%);
+	top: calc(50% - 1px);
 	left: calc(50% - 12.5px);
 	transform: rotate(90deg);
 	width: 25px;
@@ -96,7 +96,7 @@ header ul li a{
 }
 #newpost{
 	transition: 0.5s;
-	position: absolute;
+	position: fixed;
 	display: block;
 	width: calc(100% - 20%);
 	height: 0;
@@ -107,12 +107,21 @@ header ul li a{
 	margin: 0;
 	z-index: 1;
 }
+#newpost input, #newpost textarea{
+	position: relative;
+	display: none;
+	top: 0;
+	transition: 0.2s ;
+	background: #ddd;
+}
 #new.click + #newpost{
 	height: calc(100% - 60px);
 }
-header #new.click + main section{
-	display: none;
+#new.click + #newpost input{
+	display: block;
+	top: 20%;
 }
+
 main{
 	position: relative;
 	display: grid;
@@ -162,10 +171,9 @@ section{
 	display: grid;
 	width: 100%;
 	height: 100%;
-	background-image: linear-gradient(0deg, #fff, rgb(0,0,0,0.09));
+	background-image: linear-gradient(45deg, #345, #979);
 	grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
 	grid-template-rows: repeat(auto-fit, minmax(350px, 1fr));
-	padding: 10px;
 	overflow-y: scroll;
 	overflow-x: hidden;
 }
@@ -173,15 +181,15 @@ section{
 	position: relative;
 	display: block;
 	width: 80%;
-	height: 90%;
-	min-height: 300px;
+	height: 80%;
+	min-height: 150px;
 	max-height: 350px;
 	background: rgb(0,0,0,0.3);
 	top: calc(50% - 40%);
-	left: calc(50% - 40%);
+	left: calc(50% - 40% + 10px);
 	border-radius: 10px;
 	transition: 0.2s;
-	margin: 0 0 50px 0;
+	margin: 10px 0 110px 0;
 }
 
 .post .img{
@@ -217,5 +225,9 @@ section{
 	}
 	#dash{
 		display: none;
+	}
+	#newpost{
+		width: 100%;
+		left:0;
 	}
 }

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=width-device, initial-scale=1.0">
+    <link rel="stylesheet" href="{{url_for('static',filename='style.css')}}">
+    <title>blog</title></title>
+  </head>
+  <body>
+    <section>
+    <form id="login" action='/login' method='post'>
+      <h1>conecte-se</h1>
+      <input name='name_email' type="text" min="4" placeholder="nome/email" required>
+      <div class='password'>
+        <input name='password' type="password" min="8" placeholder="senha" required>
+        <div></div>
+      </div>
+      <div class="footer">
+        <button>entrar</button>
+        <p>cadastrar-se</p>
+      </div>
+    </form>
+    <form id="sign" action='/sign' method='post'>
+      <h1>cadastro</h1>
+      <input name='name' type="text" min="4" placeholder="nome" required="">
+      <input name='email' type="text" min="7" placeholder="email" required="">
+      <div class='password'>
+        <input name='password' type="password" min="8" placeholder="senha" required="">
+        <div></div>
+      </div>
+      <div class="footer">
+        <button>cadastrar</button>
+        <p>já cadastrado</p>
+      </div>
+    </form>
+    </section>
+  </body>
+  <script>
+	let login = document.querySelector('#login p')
+	let sign = document.querySelector('#sign p')
+	
+	login.addEventListener('click',()=>{
+	  document.querySelector('#login').style.width = 0
+	  document.querySelector('#sign').style.width = '100%'
+	})
+	sign.addEventListener('click',()=>{
+	  document.querySelector('#login').style.width = '100%'
+	  document.querySelector('#sign').style.width = 0
+	})
+	
+	document.querySelector('#sign .password div').addEventListener('click',()=>{
+	  let input = document.querySelector('#sign .password input')
+	  if (input.type == 'text'){
+	  input.setAttribute('type','password')
+	  }
+	  else{
+	  input.setAttribute('type','text')
+	  }
+	  document.querySelector('#sign .password div').classList.toggle("click")
+	})
+	document.querySelector('#login .password div').addEventListener('click',()=>{
+	  let input = document.querySelector('#login .password input')
+	  if (input.type == 'text'){
+	  input.setAttribute('type','password')
+	  }
+	  else{
+	  input.setAttribute('type','text')
+	  }
+	  document.querySelector('#login .password div').classList.toggle("click")
+	})
+  </script>
+</html>
